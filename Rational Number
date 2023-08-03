@@ -1,0 +1,93 @@
+public class Rational {
+    private int numerator;
+    private int denominator;
+    Rational()
+    {
+        setNumerator(0);
+        setDenominator(1);
+    }
+    Rational(int numerator,int denominator)
+    {
+        int x=gcd(numerator,denominator);
+        setNumerator(numerator/x);
+        setDenominator(denominator/x);
+    }
+    public void setNumerator(int numerator) {
+        this.numerator = numerator;
+    }
+    public void setDenominator(int denominator) {
+        this.denominator = denominator;
+    }
+    public int getNumerator() {
+        return numerator;
+    }
+    public int getDenominator() {
+        return denominator;
+    }
+    public Rational addition(Rational r)
+    {
+        int a=this.getNumerator();
+        int b=this.getDenominator();
+        int c=r.getNumerator();
+        int d=r.getDenominator();
+        return new Rational(a*d+b*c,b*d);
+    }
+    public Rational subtraction(Rational r)
+    {
+        int a=this.getNumerator();
+        int b=this.getDenominator();
+        int c=r.getNumerator();
+        int d=r.getDenominator();
+        return new Rational(a*d-b*c,b*d);
+    }
+    public Rational multiplication(Rational r)
+    {
+        int a=this.getNumerator();
+        int b=this.getDenominator();
+        int c=r.getNumerator();
+        int d=r.getDenominator();
+        return new Rational(a*c,b*d);
+    }
+    public Rational division(Rational r)
+    {
+        int a=this.getNumerator();
+        int b=this.getDenominator();
+        int c=r.getNumerator();
+        int d=r.getDenominator();
+        return new Rational(a*d,b*c);
+    }
+    private int gcd(int a,int b)
+    {
+        if(b==0) return a;
+        else return gcd(b,a%b);
+    }
+    @Override
+    public String toString() {
+        if(getNumerator()==getDenominator()) return "1";
+        if(getNumerator()==0) return "0";
+        return getNumerator() + "/" + getDenominator();
+    }
+}
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in=new Scanner(System.in);
+        int a=in.nextInt();
+        int b=in.nextInt();
+        int c=in.nextInt();
+        int d=in.nextInt();
+        Rational r1=new Rational(a,b);
+        Rational r2=new Rational(c,d);
+        System.out.println("r1: " + r1 + "\n" + "r1: " + r2);
+        Rational sum=r1.addition(r2);
+        Rational dif=r1.subtraction(r2);
+        Rational prod=r1.multiplication(r2);
+        Rational div=r1.division(r2);
+        System.out.println("sum= "+sum);
+        System.out.println("product= "+prod);
+        System.out.println("difference= "+dif);
+        System.out.println("div= "+div);
+        in.close();
+    }
+}
