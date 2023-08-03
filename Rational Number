@@ -1,3 +1,4 @@
+//Actual rational class
 public class Rational {
     private int numerator;
     private int denominator;
@@ -63,19 +64,28 @@ public class Rational {
     }
     @Override
     public String toString() {
-        if(getNumerator()==getDenominator()) return "1";
-        if(getNumerator()==0) return "0";
+//        if(getNumerator()==getDenominator()) return "1";
+        if(getNumerator()==0) return ""+getNumerator();
+        if(getDenominator()==1) return ""+getNumerator();
         return getNumerator() + "/" + getDenominator();
     }
 }
+
+//Driver code
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
+        System.out.println("Enter the numerator and denominator of first Rational number: ");
+        System.out.println("Numerator: ");
         int a=in.nextInt();
+        System.out.println("Denominator: ");
         int b=in.nextInt();
+        System.out.println("Enter the numerator and denominator of second Rational number: ");
+        System.out.println("Numerator: ");
         int c=in.nextInt();
+        System.out.println("Denominator: ");
         int d=in.nextInt();
         Rational r1=new Rational(a,b);
         Rational r2=new Rational(c,d);
