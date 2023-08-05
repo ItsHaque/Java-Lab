@@ -1,0 +1,21 @@
+import javax.swing.*;
+
+public class Power {
+    static double power(int n,double p)
+    {
+        double r=1;
+        while (p>0)
+        {
+            r*=n;
+            --p;
+        }
+        return r;
+    }
+    public static void main(String[] args) {
+        String w= JOptionPane.showInputDialog(null,"Enter the base");
+        int num1=Integer.parseInt(w);
+        String x = JOptionPane.showInputDialog(null,"Enter the power");
+        double num2=Double.parseDouble(x);
+        JOptionPane.showMessageDialog(null,power(num1,num2));
+    }
+}
