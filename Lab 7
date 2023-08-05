@@ -1,0 +1,71 @@
+public class Main {
+    public static void main(String[] args) {
+        try{
+            Multiple m=new Multiple(5,4);
+            if(m.x%m.y==0) System.out.println(m.x + " is a multiple of " + m.y);
+            else System.out.println(m.x + " is not a multiple of " + m.y);
+        }
+        catch (NegativeNumberException e)
+        {
+            e.printMessage();
+        }
+        catch (SmallerNumberException e)
+        {
+            e.printMessage();
+        }
+        catch (ZeroException e)
+        {
+            e.printMessage();
+        }
+
+    }
+}
+
+public class Multiple  {
+    int x,y;
+    Multiple(int x,int y) throws NegativeNumberException,SmallerNumberException,ZeroException
+    {
+        if(x<0) throw new NegativeNumberException(x);
+        else if (y<0) throw new NegativeNumberException(y);
+        else if(x<y) throw new SmallerNumberException(x,y);
+        else if(y==0) throw new ZeroException(y);
+        else {
+            this.x=x;
+            this.y=y;
+        }
+    }
+}
+public class NegativeNumberException extends Exception{
+    int a;
+    NegativeNumberException(int a)
+    {
+        this.a=a;
+    }
+    void printMessage()
+    {
+        System.out.println("Exception: At least one of the member variables is negative.");
+    }
+}
+public class SmallerNumberException extends Exception{
+    int a,b;
+    SmallerNumberException(int a,int b)
+    {
+        this.a=a;
+        this.b=b;
+    }
+    void printMessage()
+    {
+        System.out.println("Exception: First number is smaller than second number");
+    }
+}
+public class ZeroException extends Exception{
+    int a;
+    ZeroException(int a)
+    {
+        this.a=a;
+    }
+    void printMessage()
+    {
+        System.out.println("Exception: The second number is zero");
+    }
+}
