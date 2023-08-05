@@ -1,0 +1,41 @@
+import javax.swing.*;
+
+public class Main {
+    public static void main(String[] args) {
+        String s= JOptionPane.showInputDialog(null,"Enter Seconds.");
+        int x=Integer.parseInt(s);
+        Time t=new Time(x);
+        t.calc();
+        JOptionPane.showMessageDialog(null,"Hours: " + t.getHours() + "\nMinutes: " + t.getMinutes() + "\nSeconds: " + t.getSeconds());
+    }
+}
+
+import javax.swing.*;
+
+public class Time {
+    int x;
+    int hours,minutes,seconds;
+    Time(int x)
+    {
+        this.x=x;
+    }
+    void calc()
+    {
+        this.hours=x/3600;
+        int p=x%3600;
+        this.minutes=p/60;
+        this.seconds=p%60;
+    }
+    int getHours()
+    {
+        return hours;
+    }
+    int getMinutes()
+    {
+        return minutes;
+    }
+    int getSeconds()
+    {
+        return seconds;
+    }
+}
