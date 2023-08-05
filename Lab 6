@@ -1,0 +1,176 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args)  {
+        Scanner in=new Scanner(System.in);
+        System.out.println("Enter Name:");
+        String name=in.nextLine();
+        System.out.println("Enter Designation:");
+        String designation=in.nextLine();
+        System.out.println("Enter the Joining Date in the following format - \"dd/mm/yyyy\" :");
+        String joiningDate=in.nextLine();
+        System.out.println("Enter basic salary");
+        double basic=in.nextDouble();
+        String s=in.nextLine();
+        System.out.println("Enter Address");
+        String address=in.nextLine();
+        Staff staff=new Staff(name,designation,joiningDate,basic,address);
+        System.out.println("Final salary: " + staff.calculateSalary());
+        in.close();
+    }
+}
+
+public class Employee {
+    protected String name,designation,jDate;
+    protected double basic;
+    Employee()
+    {
+        name=null;
+        designation=null;
+        jDate=null;
+        basic=0;
+    }
+    Employee(String n,String d, String jd, double b)
+    {
+        name=n;
+        designation=d;
+        jDate=jd;
+        basic=b;
+    }
+}
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.SimpleTimeZone;
+
+public class Manager extends Employee{
+    private String address;
+    private double houseRent=0;
+    Manager()
+    {
+        super();
+        address=null;
+    }
+    Manager(String n,String d, String jd, double b,String a)
+    {
+        super(n,d,jd,b);
+        address=a;
+    }
+    long calculateExp()
+    {
+        long experience=0;
+        try {
+            Date currentDate = new Date();
+//        SimpleDateFormat formatter=new SimpleDateFormat("DD/MM/YYYY");
+            Date joiningDate = new SimpleDateFormat("DD/MM/YYYY").parse(jDate);
+//        int x=currentDate.compareTo(joiningDate);
+            experience = currentDate.getTime() - joiningDate.getTime() / ((long) 1000 * 60 * 60 * 24 * 365);
+//        experience=
+        }
+        catch (ParseException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        finally {
+            return experience;
+        }
+    }
+    double calculateSalary()
+    {
+        houseRent=basic*0.5;
+        double salary= basic+houseRent;
+        if(calculateExp()>10) salary+=basic*0.1;
+        return salary;
+    }
+}
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Officer extends Employee{
+    private String address;
+    private double houseRent=0;
+    Officer()
+    {
+        super();
+        address=null;
+    }
+    Officer(String n,String d, String jd, double b,String a)
+    {
+        super(n,d,jd,b);
+        address=a;
+    }
+    long calculateExp()
+    {
+        long experience=0;
+        try {
+            Date currentDate = new Date();
+//        SimpleDateFormat formatter=new SimpleDateFormat("DD/MM/YYYY");
+            Date joiningDate = new SimpleDateFormat("DD/MM/YYYY").parse(jDate);
+//        int x=currentDate.compareTo(joiningDate);
+            experience = currentDate.getTime() - joiningDate.getTime() / ((long) 1000 * 60 * 60 * 24 * 365);
+//        experience=
+        }
+        catch (ParseException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        finally {
+            return experience;
+        }
+    }
+    double calculateSalary()
+    {
+        houseRent=basic*0.4;
+        double salary= basic+houseRent;
+        if(calculateExp()>10) salary+=basic*0.1;
+        return salary;
+    }
+}
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Staff extends Employee{
+    private String address;
+    private double houseRent=0;
+    Staff()
+    {
+        super();
+        address=null;
+    }
+    Staff(String n,String d, String jd, double b,String a)
+    {
+        super(n,d,jd,b);
+        address=a;
+    }
+    long calculateExp()
+    {
+        long experience=0;
+        try {
+            Date currentDate = new Date();
+//        SimpleDateFormat formatter=new SimpleDateFormat("DD/MM/YYYY");
+            Date joiningDate = new SimpleDateFormat("DD/MM/YYYY").parse(jDate);
+//        int x=currentDate.compareTo(joiningDate);
+            experience = currentDate.getTime() - joiningDate.getTime() / ((long) 1000 * 60 * 60 * 24 * 365);
+//        experience=
+        }
+        catch (ParseException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        finally {
+            return experience;
+        }
+    }
+    double calculateSalary()
+    {
+        houseRent=basic*0.3;
+        double salary= basic+houseRent;
+        if(calculateExp()>10) salary+=basic*0.1;
+        return salary;
+    }
+}
