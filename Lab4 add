@@ -1,0 +1,15 @@
+import javax.swing.*;
+
+public class Add {
+
+    public static void main(String[] args) {
+        String x= JOptionPane.showInputDialog(null,"Enter the first number.");
+        int num1=Integer.parseInt(x);
+        String y = JOptionPane.showInputDialog(null,"Enter the second number.");
+        int num2=Integer.parseInt(y);
+        int sum=num1+num2;
+        String output=num1 + " + " + num2 + " = " + sum;
+        JOptionPane.showMessageDialog(null,output);
+    }
+
+}
