@@ -1,0 +1,58 @@
+public class Main {
+    public static void main(String[] args) {
+        Circle c=new Circle(4,5,6);
+        System.out.println("The area is: " + c.computeArea());
+        Cylinder cl=new Cylinder(4,5,6,7);
+        System.out.println("The area is: " + cl.computeArea());
+    }
+}
+
+public abstract class Point {
+    int x,y;
+    static final double PI=Math.PI;
+    Point()
+    {
+        this.x=0;
+        this.y=0;
+    }
+    Point(int x,int y)
+    {
+        this.x=x;
+        this.y=y;
+    }
+    abstract double computeArea();
+}
+public class Circle extends Point{
+    int r=0;
+    Circle()
+    {
+        super();
+        this.r=0;
+    }
+    Circle(int x,int y,int r)
+    {
+        super(x,y);
+        this.r=r;
+    }
+    double computeArea()
+    {
+        return PI*r*r;
+    }
+}
+public class Cylinder extends Circle{
+    int h;
+    Cylinder()
+    {
+        super();
+        this.h=0;
+    }
+    Cylinder(int x,int y,int r,int h)
+    {
+        super(x,y,r);
+        this.h=h;
+    }
+    double computeArea()
+    {
+        return 2*PI*r*(r+h);
+    }
+}
