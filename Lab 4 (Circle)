@@ -1,0 +1,14 @@
+import javax.swing.*;
+
+public class CircleJPN {
+    public static void main(String[] args) {
+        String x= JOptionPane.showInputDialog(null,"Enter the radius of the circle");
+        int radius=Integer.parseInt(x);
+        double area=Math.PI*radius*radius;
+        double circumference=2*Math.PI*radius;
+        String[] options={"Area","Circumference"};
+        int p=JOptionPane.showOptionDialog(null,"Select one","Selection",0,0,null,options,options[0]);
+        if(p==0) JOptionPane.showMessageDialog(null,"Area = " + area);
+        if(p==1) JOptionPane.showMessageDialog(null,"Circumference = " + area);
+    }
+}
