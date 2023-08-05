@@ -1,0 +1,17 @@
+import javax.swing.*;
+
+public class SalesMan {
+    public static void main(String[] args) {
+        String w= JOptionPane.showInputDialog(null,"Enter the amount sold of item 1.");
+        int num1=Integer.parseInt(w);
+        String x = JOptionPane.showInputDialog(null,"Enter the amount sold of item 2.");
+        int num2=Integer.parseInt(x);
+        String y= JOptionPane.showInputDialog(null,"Enter the amount sold of item 3.");
+        int num3=Integer.parseInt(y);
+        String z = JOptionPane.showInputDialog(null,"Enter the amount sold of item 4.");
+        int num4=Integer.parseInt(z);
+        int sale=num1*220+num2*120+num3*100+num4*350;
+        double totalEarnings=2000+sale*0.09;
+        JOptionPane.showMessageDialog(null,"Total Earnings: " + totalEarnings);
+    }
+}
