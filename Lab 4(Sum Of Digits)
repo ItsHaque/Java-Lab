@@ -1,0 +1,15 @@
+import javax.swing.*;
+
+public class SumOfDigits {
+    public static void main(String[] args) {
+        String s= JOptionPane.showInputDialog("Enter an Integer");
+        int num=Integer.parseInt(s);
+        int sum=0,k=num;
+        while (k>0)
+        {
+            sum+=k%10;
+            k/=10;
+        }
+        JOptionPane.showMessageDialog(null,"Sum of Digits of " + num + " = " + sum);
+    }
+}
