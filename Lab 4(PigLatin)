@@ -1,0 +1,11 @@
+import javax.swing.*;
+
+public class PigLatin {
+    public static void main(String[] args) {
+        String s= JOptionPane.showInputDialog(null,"Enter the string.");
+        char c=s.charAt(0);
+        String output= s.substring(1);
+        output+=c + "ay";
+        JOptionPane.showMessageDialog(null,"The String in Pig Latin is: " + output);
+    }
+}
