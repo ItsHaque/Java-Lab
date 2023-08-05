@@ -1,0 +1,23 @@
+import javax.swing.*;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            int a=Integer.parseInt(args[0]);
+            int b=Integer.parseInt(args[1]);
+            JOptionPane.showMessageDialog(null,"The answer is: " + a/b);
+        }
+        catch (NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(null,"Number Format Exception " + e.getMessage());
+        }
+        catch (ArithmeticException e)
+        {
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+        catch (IndexOutOfBoundsException e)
+        {
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+    }
+}
