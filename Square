@@ -1,0 +1,50 @@
+import javax.swing.*;
+
+public class Square {
+    static int sq(int x)
+    {
+        return x*x;
+    }
+    static float sq(float x)
+    {
+        return x*x;
+    }
+    static double sq(double x)
+    {
+        return x*x;
+    }
+    static long sq(long x)
+    {
+        return x*x;
+    }
+    public static void main(String[] args) {
+        String[] options={"int","float","double","long"};
+//        int x=JOptionPane.showInputDialog();
+        var x=JOptionPane.showInputDialog(null,"Select the Data type","Data Type",JOptionPane.PLAIN_MESSAGE ,null,options,options[0]);
+//        int y=Integer.parseInt(x);
+//        JOptionPane.showMessageDialog(null,x);
+        if(x=="int")
+        {
+            String s= JOptionPane.showInputDialog("Enter the number");
+            int num=Integer.parseInt(s);
+            Square ob=new Square();
+            JOptionPane.showMessageDialog(null,"Square of " + num + " = " + ob.sq(num));
+        } else if (x=="float") {
+            String s= JOptionPane.showInputDialog("Enter the number");
+            float num=Float.parseFloat(s);
+            Square ob=new Square();
+            JOptionPane.showMessageDialog(null,"Square of " + num + " = " + ob.sq(num));
+        } else if (x=="double") {
+            String s= JOptionPane.showInputDialog("Enter the number");
+            double num=Double.parseDouble(s);
+            Square ob=new Square();
+            JOptionPane.showMessageDialog(null,"Square of " + num + " = " + ob.sq(num));
+        }
+        else {
+            String s= JOptionPane.showInputDialog("Enter the number");
+            long num=Long.parseLong(s);
+            Square ob=new Square();
+            JOptionPane.showMessageDialog(null,"Square of " + num + " = " + ob.sq(num));
+        }
+    }
+}
